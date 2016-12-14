@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Forex Buddy",
+  "description": "Get the current forex rate and trends directly from browser",
+  "version": "0.1",
+
+  "icons": { "16": "icon16.png",
+            "32": "icon32.png",
+            "64": "icon64.png",
+            "128": "icon128.png" },
+
+  "browser_action": {
+   "default_icon": "icon16.png",
+   "default_popup": "main.html"
+  },
+
+  "permissions": [
+   "activeTab",
+   "webRequest",
+   "*://openexchangerates.org/*",
+   "*//*.ecb.int/*"
+   ]
+}

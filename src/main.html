@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Forex</title>
+    <script src="popup.js"></script>
+    <script src="jquery-3.1.1.js"></script>
+  </head>
+  <body>
+    <h3>Today's forex values</h3>
+<p id="someElement"></p>
+<p id="anotherElement"></p>
+ 
+<script>
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = handleStateChange; // Implemented elsewhere.
+  xhr.open("GET", chrome.extension.getURL('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml'), true);
+  xhr.send();
+
+  xmlDoc = $.parseXML( xhr.responseXML);
+  $title = $xmlDoc.find( "gesmes:name" );
+ 
+// Append "RSS Title" to #someElement
+$( "#someElement" ).append( $title.text() );
+ 
+// Change the title to "XML Title"
+$title.text( "XML Title" );
+ 
+// Append "XML Title" to #anotherElement
+$( "#anotherElement" ).append( $title.text() );
+</script>
+ 
+</body>
+  </body>
+  
+</html>
